@@ -48,7 +48,7 @@ def generate_response(prompt, max_tokens=250, temperature=0.7, top_p=0.95, repea
         top_k=top_k,
         echo=True
     )
-    print(response.choices)
+    print(response[0])
     return response["choices"][0]["text"]
 
 def update_conversation(text, role, conversation_id, filename="conversation.json"):
