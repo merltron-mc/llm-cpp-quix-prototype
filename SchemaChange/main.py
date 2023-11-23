@@ -11,7 +11,11 @@ output_topic = app.topic(os.environ["output"], value_serializer=QuixTimeseriesSe
 sdf = app.dataframe(input_topic)
 
 sdf["chat-message"] = sdf["text"]
-sdf = sdf.update(lambda row: row["Tags"]["name"] = row["role"])
+
+def update_tags(row):
+    row["Tags"]["name"] = row["role"]
+
+sdf = sdf.update(update_tags)
 
 sdf = sdf.update(lambda row: print(row))
 
