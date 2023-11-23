@@ -43,15 +43,15 @@ def generate_response(prompt, max_tokens=250, temperature=0.7, top_p=0.95, repea
         max_tokens=max_tokens,
         temperature=temperature,
         top_p=top_p,
-        stream=True,
+        #stream=True,
         stop=["AGENT:","CUSTOMER:","\n"],
         repeat_penalty=repeat_penalty,
         top_k=top_k,
         echo=True
     )
 
-    for iteration in response:
-        print(iteration["choices"][0]["text"])
+    #for iteration in response:
+        #print(iteration["choices"][0]["text"])
 
     return response["choices"][0]["text"]
 
