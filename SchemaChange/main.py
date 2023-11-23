@@ -10,9 +10,9 @@ output_topic = app.topic(os.environ["output"], value_serializer=QuixTimeseriesSe
 
 sdf = app.dataframe(input_topic)
 
-# Here put transformation logic.
+sdf["chat-message"] = sdf["text"]
 
-sdf.apply(lambda row, ctx: print(row))
+sdf = sdf.update(lambda row: print(row))
 
 #sdf.to_topic(output_topic)
 
