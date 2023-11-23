@@ -50,7 +50,8 @@ def generate_response(prompt, max_tokens=250, temperature=0.7, top_p=0.95, repea
         echo=True
     )
 
-    print(dir(response))
+    for iteration in response:
+        print(iteration["choices"][0]["text"])
 
     return response["choices"][0]["text"]
 
