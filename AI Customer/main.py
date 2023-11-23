@@ -48,7 +48,7 @@ def generate_response(prompt, max_tokens=250, temperature=0.7, top_p=0.95, repea
         top_k=top_k,
         echo=True
     )
-    print(response[0])
+
     return response["choices"][0]["text"]
 
 def update_conversation(text, role, conversation_id, filename="conversation.json"):
@@ -107,7 +107,7 @@ def publish_rp(response):
     df = pd.DataFrame(chatmessage)
 
     print("Publising stream...")
-    #stream.timeseries.buffer.publish(df)
+    stream.timeseries.buffer.publish(df)
     print("Published")
 
 print("Listening for messages...")
