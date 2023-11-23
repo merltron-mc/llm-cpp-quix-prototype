@@ -77,6 +77,29 @@ deployments:
         description: Input buffer configuration (timeout and timespan in milliseconds).
         required: false
         value: 0
+  - name: Sentiment Demo UI
+    application: Sentiment Demo UI
+    deploymentType: Service
+    version: 5c308ea0e75e9cf00f81c4ddd341bb88cc4cd625
+    resources:
+      cpu: 200
+      memory: 200
+      replicas: 1
+    publicAccess:
+      enabled: true
+      urlPrefix: sentiment-demo-ui
+    desiredStatus: Running
+    variables:
+      - name: sentiment
+        inputType: FreeText
+        description: The topic to read from
+        required: true
+        value: sentiment
+      - name: messages
+        inputType: FreeText
+        description: The topic to read from
+        required: true
+        value: messages
 
 # This section describes the Topics of the data pipeline
 topics:
